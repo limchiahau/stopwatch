@@ -176,7 +176,7 @@ class Keyboard:
 
     @property
     def _(self):
-        time.sleep(self.duration / 1000)
+        time.sleep(self.duration / 10)
         return self
 
     def play_frequency(self,frequency):
@@ -203,6 +203,11 @@ class Ringer:
 
     def end(self):
         self.keyboard.c.d.e.f.e.d.c
+
+    def titanic(self):
+        '''my heart will go on'''
+        self.keyboard.f._._.f.f._.f.e.f._._.f.e.f._._.g.a.g
+        self.keyboard.f._._.f.f._.f.e.f._._.f.c
 
 
 class Time:
