@@ -1,4 +1,5 @@
 import pyttsx3
+from enum import Enum, auto
 
 class SpeechSynthesizer:
     def __init__(self):
@@ -35,7 +36,7 @@ class GenderedSpeechSynthesizer(SpeechSynthesizer):
         '''
         set the gender of the voice.
 
-        gender is a string.
+        gender is of class Gender.
         
         gender should be "male" or "female"
         if gender is anything other than male
@@ -43,10 +44,10 @@ class GenderedSpeechSynthesizer(SpeechSynthesizer):
         '''
         super().__init__()
         
-        if gender == 'male':
+        if gender is Gender.Male:
             self.gender = 0
         else:
-            # gender = female
+            # assumes that gender = female
             self.gender = 1
 
     def say(self,text):
@@ -65,9 +66,14 @@ class GenderedSpeechSynthesizer(SpeechSynthesizer):
 
 class MaleSpeechSynthesizer(GenderedSpeechSynthesizer):
     def __init__(self):
-        super().__init__('male')
+        super().__init__(Gender.Male)
 
 
 class FemaleSpeechSynthesizer(GenderedSpeechSynthesizer):
     def __init__(self):
-        super().__init__('female')
+        super().__init__(Gender.Female)
+
+
+class Gender(Enum):
+    Male = auto()
+    Female = auto()
