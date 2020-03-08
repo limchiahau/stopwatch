@@ -1,4 +1,5 @@
 from timer import SecondsTimer
+from announcer import LapAnnouncer
 from pyfiglet import Figlet
 import os
 import winsound
@@ -81,7 +82,8 @@ class LappedStopwatch(Stopwatch):
         duration and lap_time is in seconds
         '''
         super().__init__(duration)
-        self.countdown = Countdown(lap_time,self.ringer.alert)
+        self.announcer = LapAnnouncer()
+        self.countdown = Countdown(lap_time,self.announcer.toggle)
 
     def tick(self):
         super().tick()

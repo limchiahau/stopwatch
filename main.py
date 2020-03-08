@@ -8,7 +8,10 @@ def minutes(mins):
 s = LappedStopwatch(minutes(30),minutes(1))
 alt = Alternator(lambda: s.pause(), lambda: s.resume())
 
-s.start()
-
+#toggle alternator when enter is pressed.
 listener = KeyboardListener()
 listener.on_enter(alt.toggle)
+
+#start the LappedStopwatch.
+s.start()
+
