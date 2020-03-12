@@ -62,6 +62,8 @@ class Stopwatch:
 
     def __set_pause__(self,pause_state):
         self.paused = pause_state
+        # plays a sound when the stopwatch is paused or unpaused.
+        self.ringer.alert()
         self.display_time()
 
     def display_time(self):
